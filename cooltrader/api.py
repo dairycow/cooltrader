@@ -12,6 +12,19 @@ from cooltrader.downloader import create_downloader
 from cooltrader.importer import create_importer
 
 router = APIRouter(prefix="/import", tags=["historical-data"])
+health_router = APIRouter(tags=["health"])
+
+
+class HealthResponse(BaseModel):
+    """Response model for health check."""
+
+    status: str
+
+
+@health_router.get("/health", response_model=HealthResponse)
+async def health_check() -> HealthResponse:
+    """Health check endpoint."""
+    return HealthResponse(status="ok")
 
 
 class JobTriggerResponse(BaseModel):

@@ -9,7 +9,7 @@ import typer
 from fastapi import FastAPI
 from loguru import logger
 
-from cooltrader.api import router
+from cooltrader.api import health_router, router
 from cooltrader.config import config
 from cooltrader.database import initialise_database
 from cooltrader.scheduler import get_scheduler_service, reset_scheduler_service
@@ -86,6 +86,7 @@ app = FastAPI(
 )
 
 app.include_router(router, prefix="/api/v1")
+app.include_router(health_router, prefix="/api/v1")
 
 cli = typer.Typer(name="cooltrader", help="CoolTrader ASX historical data service")
 
