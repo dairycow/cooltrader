@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+*.log
+*.zip
+*.csv
+data/cooltrader.db
+data/cooltrader.db-wal
+data/cooltrader.db-shm
+!tests/
